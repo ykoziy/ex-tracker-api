@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Exercise Tracker</title>
+  <title>Exercise tracker</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div class="content">
     <div class="container">
-      <h3>Hello World!</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <h3>Excercise Tracker</h3>
+      <div class="form-container">
+        <h4>Create a new user</h4>
+        <form action="/api/exercise/new-user" method="post" class="url-form">
+          <label for="url">Username: </label>
+          <input type="text" name="user-name" required placeholder="username">
+          <input type="submit" value="Submit">
+        </form>
+      </div>
     </div>
     </div>
   </div>

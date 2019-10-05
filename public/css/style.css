@@ -1,0 +1,27 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: lightgray;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: lightblue;
+  min-width: 70%;
+}

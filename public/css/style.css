@@ -9,6 +9,23 @@ html, body {
   box-sizing: border-box;
 }
 
+body {
+  font-family: sans-serif;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+form {
+  width: 90%;
+  padding: 0;
+  margin: auto;
+}
+
 .content {
   height: 100%;
   width: 100%;
@@ -24,4 +41,8 @@ html, body {
   flex-direction: column;
   background-color: lightblue;
   min-width: 70%;
+}
+
+.form-container {
+  min-width: 350px;
 }

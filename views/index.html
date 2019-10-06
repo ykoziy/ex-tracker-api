@@ -7,13 +7,19 @@
 <body>
   <div class="content">
     <div class="container">
-      <h3>Excercise Tracker</h3>
+      <h2>Excercise Tracker</h2>
       <div class="form-container">
         <h4>Create a new user</h4>
         <form action="/api/exercise/new-user" method="post" class="user-form">
-          <label for="username">Username: </label>
           <input type="text" name="username" required placeholder="username">
           <input type="submit" value="Submit">
+        </form>
+        <h4>Add exercise</h4>
+        <form action="/api/exercise/new-user" method="post" class="exercise-form">
+          <input type="text" name="userid" required placeholder="user id">
+          <input type="text" name="desc" required placeholder="description">
+          <input type="text" name="dur" required placeholder="duration (minutes)">
+          <input type="date" name="date">
         </form>
       </div>
     </div>

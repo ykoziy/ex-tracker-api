@@ -1,6 +1,19 @@
 const User = require('../models/user');
 const  moment = require("moment");
 
+const setExerciseObj = (desc, dur, date) => {
+  const item = {
+    description: desc,
+    duration: dur,
+  };
+  if (date !== '') {
+    if (moment().isValid()) {
+      item.date = date;
+    }
+  }
+  return item;
+}
+
 exports.createUser = (req, res, next) => {
   const user = new User(req.body);
   user.save((err, data) => {
@@ -16,8 +29,28 @@ exports.createUser = (req, res, next) => {
   });
 }
 
-exports.addExcercise = (req, res) => {
-  res.send('POST: addExcercise not implemented');
+exports.addExercise = (req, res, next) => {
+  const {userid, desc, dur, date } = req.body;
+  const item = setExerciseObj(desc, dur, date);
+
+  User.findOne({uid: userid}, (err, user) => {
+    if (err) return next(err);
+    if(!user) {
+      return next(
+        {status: 400, message: 'user id not found'}
+      );
+    }
+    user.exercise.push(item);
+    user.save((err, data) => {
+      if (err) return next(err);
+      let lastItem = data.exercise.slice(-1)[0];
+      res.json({
+        description:lastItem.date,
+        duration:lastItem.duration,
+        date:lastItem.date
+      });
+    });
+  });
 }
 
 exports.getExcerciseLog = (req, res) => {

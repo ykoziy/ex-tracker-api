@@ -18,7 +18,7 @@
         <form action="/api/exercise/add" method="post" class="exercise-form">
           <input type="text" name="userid" required placeholder="user id">
           <input type="text" name="desc" required placeholder="description">
-          <input type="text" name="dur" required placeholder="duration (minutes)">
+          <input type="number" min="0" name="dur" required placeholder="duration (minutes)">
           <input type="date" name="date">
           <input type="submit" value="Submit">
         </form>

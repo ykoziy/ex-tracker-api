@@ -15,6 +15,11 @@ app.get('/', (req, res) => {
 });
 
 app.use('/', routes);
+
+app.use((err, req, res, next) => {
+  console.log(err);
+  res.status(err.status).send(err.message);
+});
 /*
 TODO:
   POST /api/exercise/new-user

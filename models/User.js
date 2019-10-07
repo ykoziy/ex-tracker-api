@@ -14,7 +14,7 @@ let UserSchema = new Schema({
     {
       description: String,
       duration: String,
-      date: {type: String, default: getCurrentDate}
+      date: {type: Date, default: getCurrentDate}
     }
   ]
 });

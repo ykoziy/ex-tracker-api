@@ -45,9 +45,9 @@ exports.addExercise = (req, res, next) => {
       if (err) return next(err);
       let lastItem = data.exercise.slice(-1)[0];
       res.json({
-        description:lastItem.date,
+        description:lastItem.description,
         duration:lastItem.duration,
-        date:lastItem.date
+        date: lastItem.date
       });
     });
   });

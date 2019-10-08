@@ -25,7 +25,6 @@ const getLogResponse = (user, log) => {
   ex.forEach(i => {
     delete i._id;
   });
-  console.log(ex);
   result.log = ex;
   return result;
 }
@@ -71,11 +70,12 @@ exports.addExercise = (req, res, next) => {
 
 exports.getExcerciseLog = (req, res, next) => {
   const { userId, from, to, limit } = req.query;
-  console.log(userId);
+
   User.findById(userId).exec().then(user => {
     if(!user) return next({status: 400, message: 'user id not found'});
     let log = user.exercise;
     if(from && isValidDate(from)) {
+      console.log(from);
       log = log.filter(i => i.date >= new Date(from));
     }
     if(to && isValidDate(to)) {
@@ -92,7 +92,7 @@ exports.getExcerciseLog = (req, res, next) => {
 
 exports.getUsers = (req, res, next) => {
   User.find({}).
-  select({username:1, uid:1, _id:0}).
+  select({username:1, _id:1}).
   exec((err, data) => {
     if (err) return next(err);
     if(!data) res.send('no users');

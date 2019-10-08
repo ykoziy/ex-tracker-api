@@ -6,7 +6,10 @@ let URI = process.env.MONGO_URI;
 if(env === 'development') {
   URI = process.env.LOCAL_MONG_URI;
 }
-mongoose.connect(URI, options);
+mongoose.connect(URI, options).catch((err) => {
+   console.log('Connection error: ' + err);
+   process.exit(1);
+});
 
 mongoose.connection.on('connected', () => {
   console.log('Mongoose default connection is open.');

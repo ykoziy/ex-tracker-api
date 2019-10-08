@@ -14,6 +14,21 @@ const setExerciseObj = (desc, dur, date) => {
   return item;
 }
 
+const isValidDate = (date) => {
+  return moment(date,'YYYY-MM-DD', true).isValid();
+}
+
+const getLogResponse = (user, log) => {
+  const result = {username: user.username, uid: user.uid};
+  result.count = log.length;
+  let ex = log.toObject();
+  ex.forEach(i => {
+    delete i._id;
+  });
+  result.log = ex;
+  return result;
+}
+
 exports.createUser = (req, res, next) => {
   const user = new User(req.body);
   user.save((err, data) => {
@@ -53,6 +68,23 @@ exports.addExercise = (req, res, next) => {
   });
 }
 
-exports.getExcerciseLog = (req, res) => {
-  res.send('GET: getExcerciseLog not implemented');
+exports.getExcerciseLog = (req, res, next) => {
+  const { userId, from, to, limit } = req.query;
+  User.findOne({uid: userId}, {_id: 0}).exec().then(user => {
+    if(!user) return next({status: 400, message: 'user id not found'});
+    let log = user.exercise;
+    delete user._id
+    if(from && isValidDate(from)) {
+      log = log.filter(i => i.date >= new Date(from));
+    }
+    if(to && isValidDate(to)) {
+      log = log.filter(i => i.date <= new Date(to));
+    }
+    if(limit && parseInt(limit, 10)) {
+      log = log.slice(0, limit);
+    }
+    res.json(getLogResponse(user, log));
+  }).catch((err) => {
+    return next(err);
+  });
 }

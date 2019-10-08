@@ -1,4 +1,4 @@
-const User = require('../models/user');
+const User = require('../models/User');
 const  moment = require("moment");
 
 const setExerciseObj = (desc, dur, date) => {

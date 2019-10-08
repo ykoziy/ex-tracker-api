@@ -88,3 +88,13 @@ exports.getExcerciseLog = (req, res, next) => {
     return next(err);
   });
 }
+
+exports.getUsers = (req, res, next) => {
+  User.find({}).
+  select({username:1, uid:1, _id:0}).
+  exec((err, data) => {
+    if (err) return next(err);
+    if(!data) res.send('no users');
+    res.json(data);
+  });
+}

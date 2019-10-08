@@ -2,7 +2,6 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: lightgray;
 }
 
 * {
@@ -11,19 +10,50 @@ html, body {
 
 body {
   font-family: sans-serif;
+  background-color: lightgray;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.required {
+  color: red;
+  font-weight: bold;
+  font-size: 17px;
+  margin-left: 5px;
 }
 
 input {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 5px;
+  outline: none;
+}
+
+input:not([type=submit]) {
+  padding: 5px;
+  margin-bottom: 10px;
   display: block;
+  font-size: 15px;
+  border: solid 1px black;
+  border-radius: 5px;
+}
+
+input:not([type=submit]):focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
+input[type=submit] {
+  padding: 10px;
+  box-shadow: 5px 4px 5px 0px rgba(0,0,0,0.35);
+  cursor: pointer;
 }
 
 form {
   width: 90%;
   padding: 0;
-  margin: auto;
 }
 
 .content {
@@ -39,10 +69,16 @@ form {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: lightblue;
+  border-radius: 10px;
+  background-color: #fff0e6;
   min-width: 70%;
 }
 
 .form-container {
   min-width: 350px;
+  background-color: #dae5f5;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  padding: 20px;
 }

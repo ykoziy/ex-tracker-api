@@ -11,15 +11,24 @@
       <div class="form-container">
         <h4>Create a new user</h4>
         <form action="/api/exercise/new-user" method="post" class="user-form">
-          <input type="text" name="username" required placeholder="username">
+          <label for="username">Username<span class="required">*</span></label>
+          <input id="username" type="text" name="username" required>
+          <p><span class="required">*</span> Required</p>
           <input type="submit" value="Submit">
         </form>
+      </div>
+      <div class="form-container">
         <h4>Add exercise</h4>
         <form action="/api/exercise/add" method="post" class="exercise-form">
-          <input type="text" name="userId" required placeholder="user id">
-          <input type="text" name="desc" required placeholder="description">
-          <input type="number" min="0" name="dur" required placeholder="duration (minutes)">
-          <input type="date" name="date">
+          <label for="userId">User ID<span class="required">*</span></label>
+          <input id="userId" type="text" name="userId" required>
+          <label for="desc">Description<span class="required">*</span></label>
+          <input id="desc" type="text" name="desc" required>
+          <label for="dur">Duration (minutes)<span class="required">*</span></label>
+          <input id="dur" type="number" min="0" name="dur" required>
+          <label for="date">Date</label>
+          <input id="date" type="date" name="date">
+          <p><span class="required">*</span> Required</p>
           <input type="submit" value="Submit">
         </form>
       </div>

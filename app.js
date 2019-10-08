@@ -20,11 +20,5 @@ app.use((err, req, res, next) => {
   console.log(err);
   res.status(err.status).send(err.message);
 });
-/*
-TODO:
-  POST /api/exercise/new-user
-  POST /api/exercise/add
-  GET /api/exercise/log?{userId}[&from][&to][&limit]  where {} required, [] optional and from, to dates (yyyy-mm-dd), limit is a number
-*/
 
 app.listen(port, () => console.log(`App listening on port ${port}!`));

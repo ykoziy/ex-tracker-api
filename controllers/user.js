@@ -93,9 +93,10 @@ exports.getExcerciseLog = (req, res, next) => {
   const { userId, from, to, limit } = req.query;
   let expressions = setDateRange(from, to);
   let populateQuery = {path: "log", select: "-_id -__v", options: {"limit": limit}};
-  if (expressions) {
+  if (!expressions.date) {
     populateQuery["match"] = expressions;
   }
+
   User.findById(userId, '-_id -__v -newdate')
     .populate(populateQuery)
     .exec((err, user) => {
@@ -103,24 +104,6 @@ exports.getExcerciseLog = (req, res, next) => {
       if (!user) return next({status: 400, message: 'user id not found'});
       res.json(user);
     });
-
-  // User.findById(userId).exec().then(user => {
-  //   if(!user) return next({status: 400, message: 'user id not found'});
-  //   let log = user.exercise;
-  //   if(from && isValidDate(from)) {
-  //     console.log(from);
-  //     log = log.filter(i => i.date >= new Date(from));
-  //   }
-  //   if(to && isValidDate(to)) {
-  //     log = log.filter(i => i.date <= new Date(to));
-  //   }
-  //   if(limit && parseInt(limit, 10)) {
-  //     log = log.slice(0, limit);
-  //   }
-  //   res.json(getLogResponse(user, log));
-  // }).catch((err) => {
-  //   return next(err);
-  // });
 }
 
 exports.getUsers = (req, res, next) => {

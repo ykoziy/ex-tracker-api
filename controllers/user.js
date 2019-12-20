@@ -1,5 +1,6 @@
 const User = require('../models/User');
-const  moment = require("moment");
+const Exercise = require('../models/Exercise');
+const moment = require("moment");
 
 const setExerciseObj = (desc, dur, date) => {
   const item = {
@@ -49,24 +50,29 @@ exports.createUser = (req, res, next) => {
 exports.addExercise = (req, res, next) => {
   const {userId, desc, dur, date } = req.body;
   const item = setExerciseObj(desc, dur, date);
+  const newExercise = new Exercise(item);
 
-  User.findById(userId, (err, user) => {
+  newExercise.save((err, entry) => {
     if (err) return next(err);
-    if(!user) {
-      return next(
-        {status: 400, message: 'user id not found'}
-      );
-    }
-    user.exercise.push(item);
-    user.save((err, data) => {
-      if (err) return next(err);
-      let lastItem = data.exercise.slice(-1)[0];
-      res.json({
-        description:lastItem.description,
-        duration:lastItem.duration,
-        date: lastItem.date
+    User.findByIdAndUpdate(userId,
+      {
+        $push: {log: entry}
+      },
+      {new: true},
+      (err, user) => {
+        if (err) return next(err);
+        if(!user) {
+          entry.remove((err, d) => {
+            if (err) return next(err);
+          });
+          return next({status: 400, message: 'user id not found'});
+        }
+        res.json({
+         description: entry.description,
+         duration: entry.duration,
+         date: entry.date
+        });
       });
-    });
   });
 }
 

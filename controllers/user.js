@@ -92,6 +92,7 @@ exports.getExcerciseLog = (req, res, next) => {
 
 exports.getUsers = (req, res, next) => {
   User.find({}).
+  sort({newdate: -1}).
   select({username:1, _id:1}).
   exec((err, data) => {
     if (err) return next(err);

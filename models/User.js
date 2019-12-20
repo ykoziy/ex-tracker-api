@@ -9,6 +9,7 @@ const getCurrentDate = () => {
 
 let UserSchema = new Schema({
   _id: {type: String, default: shortid.generate},
+  newdate: {type: Date, default: Date.now},
   username: {type: String, unique: true, required: true},
   exercise: [
     {

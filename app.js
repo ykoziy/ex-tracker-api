@@ -22,7 +22,7 @@ app.use((err, req, res, next) => {
   if (err.name === 'ValidationError') {
     res.status(400).send({ error: err.message})
   } else {
-    res.status(err.status || 500).send(err.message);
+    res.status(err.status || 500).send({error: err.message});
   }
 });
 

@@ -19,17 +19,6 @@ const isValidDate = (date) => {
   return moment(date,'YYYY-MM-DD', true).isValid();
 }
 
-const getLogResponse = (user, log) => {
-  const result = {username: user.username, uid: user.uid};
-  result.count = log.length;
-  let ex = log.toObject();
-  ex.forEach(i => {
-    delete i._id;
-  });
-  result.log = ex;
-  return result;
-}
-
 exports.createUser = (req, res, next) => {
   const {username} = req.body;
   const newUser = new User({username, log: []});

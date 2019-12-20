@@ -30,18 +30,20 @@ const getLogResponse = (user, log) => {
 }
 
 exports.createUser = (req, res, next) => {
-  const user = new User(req.body);
-  user.save((err, data) => {
-    if (err) {
+  const {username} = req.body;
+  const newUser = new User({username, log: []});
+
+  newUser.save()
+    .then(data => {
+      res.json({_id: data._id, username: data.username});
+    })
+    .catch(err => {
       if(err.code === 11000) {
         return next({status: 400, message: 'username taken'})
       } else {
         return next(err);
       }
-    } else {
-      res.json({_id: data._id, username: data.username});
-    }
-  });
+    });
 }
 
 exports.addExercise = (req, res, next) => {

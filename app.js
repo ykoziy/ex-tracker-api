@@ -18,7 +18,11 @@ app.use('/', routes);
 
 app.use((err, req, res, next) => {
   console.log(err);
-  res.status(err.status).send(err.message);
+  if (err.name === 'ValidationError') {
+    res.status(400).send({ error: err.message})
+  } else {
+    res.status(500).send(err.message);
+  }
 });
 
 app.listen(port, () => console.log(`App listening on port ${port}!`));

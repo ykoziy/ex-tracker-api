@@ -85,13 +85,14 @@ exports.getExcerciseLog = (req, res, next) => {
   if (!expressions.date) {
     populateQuery["match"] = expressions;
   }
-
   User.findById(userId, '-_id -__v -newdate')
     .populate(populateQuery)
     .exec((err, user) => {
       if (err) return next(err);
       if (!user) return next({status: 400, message: 'user id not found'});
-      res.json(user);
+      let userObj = user.toObject();
+      userObj["count"] = userObj.log.length;
+      res.json(userObj);
     });
 }
 

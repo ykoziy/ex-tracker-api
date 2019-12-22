@@ -81,7 +81,7 @@ function setDateRange(from, to) {
 exports.getExerciseLog = (req, res, next) => {
   const { userId, from, to, limit } = req.query;
   let expressions = setDateRange(from, to);
-  let populateQuery = {path: "log", select: "-_id -__v", options: {"limit": limit}};
+  let populateQuery = {path: "log", select: "-__v", options: {"limit": limit}};
   if (!expressions.date) {
     populateQuery["match"] = expressions;
   }

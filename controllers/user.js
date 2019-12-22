@@ -85,7 +85,7 @@ exports.getExcerciseLog = (req, res, next) => {
   if (!expressions.date) {
     populateQuery["match"] = expressions;
   }
-  User.findById(userId, '-_id -__v -newdate')
+  User.findById(userId, '-__v -newdate')
     .populate(populateQuery)
     .exec((err, user) => {
       if (err) return next(err);

@@ -96,6 +96,15 @@ exports.getExerciseLog = (req, res, next) => {
     });
 }
 
+exports.getExerciseEntry = (req, res, next) => {
+  const { exId } = req.query;
+  Exercise.findById(exId, '-__v', (err, entry) => {
+    if (err) return next(err);
+    if (!entry) return next({status: 400, message: 'exercise id not found'});
+    res.json(entry);
+  });
+}
+
 exports.getUsers = (req, res, next) => {
   User.find({}).
   sort({newdate: -1}).

@@ -12,9 +12,8 @@ function ready(fn) {
   }
 }
 
-//example user id:    99kG29em
 function fetchExerciseLog() {
-  const userId = "99kG29em";
+  const userId = window.location.pathname.match(/([^\/]*)\/*$/)[1];
   const url = `/api/exercise/log?userId=${userId}`;
   const parent = document.querySelector(".content");
   const refNode = document.querySelector(".form-btns");

@@ -1,6 +1,6 @@
 
 ready(() => {
-  document.querySelector(".content").addEventListener("submit", submitForm);
+  document.querySelector(".content").addEventListener("submit", onUserSubmit);
   fetchUsers();
 });
 
@@ -12,7 +12,7 @@ function ready(fn) {
   }
 }
 
-function submitForm(event) {
+function onUserSubmit(event) {
   event.preventDefault();
   const url = '/api/exercise/new-user';
   const form = event.target;

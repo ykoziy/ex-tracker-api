@@ -14,7 +14,7 @@ function ready(fn) {
 
 function submitForm(event) {
   event.preventDefault();
-  const url = 'http://localhost:3000/api/exercise/new-user';
+  const url = '/api/exercise/new-user';
   const form = event.target;
   const input = form.querySelector('.form-input');
   if (input.value === '' || input.name !== 'username') {
@@ -71,7 +71,7 @@ function userInputSetError(form, errorMsg) {
 }
 
 function fetchUsers() {
-  const url = 'http://localhost:3000/api/exercise/users';
+  const url = '/api/exercise/users';
   const parent = document.querySelector(".content");
   fetch(url)
   .then(response => {

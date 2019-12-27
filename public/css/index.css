@@ -1,0 +1,218 @@
+html {
+  font-size: 18px;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 1rem;
+  background-color: #fff0e6;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 80%;
+  min-width: 0;
+}
+
+
+li {
+  border-bottom: 1.5px solid black;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+li .list-name {
+  font-size: 1.2rem;
+  margin-left: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-link {
+  color: black;
+  text-decoration: none;
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.4rem;
+  margin-bottom: 0.5px;
+}
+
+.list-link:hover {
+  background-color: lightgray;
+}
+
+.heading {
+  background-color: #dae5f5;
+  width: 100%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.loading-spinner {
+  height: 90px;
+  width: 90px;
+  min-height: 90px;
+  min-width: 90px;
+  border: 10px solid #dae5f5;
+  border-top-color: #61cccc;
+  border-radius: 50%;
+  margin: 3rem 0;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.add-user-form form {
+  width: 80%;
+}
+
+.form-input {
+  min-width: 0;
+  width: 100%;
+  height: 30px;
+  padding: 0.4rem;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: 3px solid #a9a9a9;
+}
+
+.form-input-error {
+  border-bottom-color: red;
+  color: red;
+}
+
+.form-input:focus {
+  border-bottom-color: #61cccc;
+}
+
+/* Add exercise page */
+.date-dur-in {
+  width: 80%;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+
+.date-dur-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.date-dur-input input {
+  height: 60px;
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+.desc-input {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.desc-input textarea {
+  width: 100%;
+  height: 100px;
+  font-size: 1.1rem;
+  resize: none;
+}
+
+.edit-ex-form {
+  width: 95%;
+  border: 1px solid red;
+}
+
+.form-btns {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form-btns button {
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  background: none;
+  font-weight: 800;
+}
+.form-btns button span {
+  margin-right: 9px;
+}
+/* mobile ladscape */
+@media all and (min-width: 450px) {
+  li {
+    /*background-color: orange;*/
+  }
+
+  .content {
+    max-width: 450px;
+  }
+
+  html {
+    font-size: 17px;
+  }
+}
+
+/* tablet */
+@media all and (min-width: 760px) {
+  html {
+    font-size: 16px;
+  }
+
+  .content {
+    max-width: 760px;
+  }
+
+  .date-dur-input {
+    flex-direction: row;
+  }
+}

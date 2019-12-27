@@ -15,7 +15,7 @@ function ready(fn) {
 //example user id:    99kG29em
 function fetchExerciseLog() {
   const userId = "99kG29em";
-  const url = `http://localhost:3000/api/exercise/log?userId=${userId}`;
+  const url = `/api/exercise/log?userId=${userId}`;
   const parent = document.querySelector(".content");
   const refNode = document.querySelector(".form-btns");
   fetch(url)

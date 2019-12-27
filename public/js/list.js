@@ -1,6 +1,7 @@
 ready(() => {
   //document is ready, can execute code
   //document.querySelector(".content").addEventListener("submit", submitForm);
+  document.querySelector(".back-btn").addEventListener("click", handleBackButton);
   fetchExerciseLog();
 });
 
@@ -10,6 +11,10 @@ function ready(fn) {
   } else {
     document.addEventListener('DOMContentLoaded', fn);
   }
+}
+
+function handleBackButton(event) {
+  window.history.back();
 }
 
 function fetchExerciseLog() {

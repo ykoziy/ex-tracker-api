@@ -45,6 +45,7 @@ function onExerciseSubmit(event) {
   })
   .then(data => {
     if (data['error']) {
+      userInputSetError(form, 'Something went wrong');
     } else {
       input.value = '';
       input.blur();
@@ -97,4 +98,16 @@ function removeLoadingDiv() {
 
 function makeListItem(exId, text) {
   return `<a class="list-link" href="/ex/${exId}"><span class="fas fa-user fa-2x"></span><div class="list-name">${text}</div></a>`;
+}
+
+function userInputSetError(form, errorMsg) {
+  let inputField = form.querySelector('.form-input');
+  inputField.disabled = true;
+  inputField.value = errorMsg;
+  inputField.classList.add("form-input-error");
+  setTimeout(() => {
+    inputField.classList.remove("form-input-error");
+    inputField.value = '';
+    inputField.disabled = false;
+  }, 1000)
 }

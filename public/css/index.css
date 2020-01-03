@@ -104,7 +104,7 @@ li .list-name {
   }
 }
 
-.add-user-form form {
+.add-user-form, .add-ex-form{
   width: 80%;
 }
 

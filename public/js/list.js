@@ -1,6 +1,6 @@
 ready(() => {
   //document is ready, can execute code
-  //document.querySelector(".content").addEventListener("submit", submitForm);
+  document.querySelector(".content").addEventListener("submit", onExerciseSubmit);
   document.querySelector(".back-btn").addEventListener("click", handleBackButton);
   fetchExerciseLog();
 });
@@ -11,6 +11,52 @@ function ready(fn) {
   } else {
     document.addEventListener('DOMContentLoaded', fn);
   }
+}
+
+function onExerciseSubmit(event) {
+  event.preventDefault();
+  const url = '/api/exercise/add';
+  const userId = window.location.pathname.match(/([^\/]*)\/*$/)[1];
+  const form = event.target;
+  const input = form.querySelector('.form-input');
+  if (input.value === '' || input.name !== 'desc') {
+    input.value = '';
+    input.blur();
+    return;
+  }
+
+  let formData = {};
+  formData[input.name] = input.value;
+  formData['dur'] = 1;
+  formData['userId'] = userId;
+
+  fetch(url, {
+    method: "post",
+    body: JSON.stringify(formData),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(response => {
+    if (response.status === 400 || response.status === 200) {
+      return response.json();
+    }
+    throw Error(response.statusText);
+  })
+  .then(data => {
+    if (data['error']) {
+    } else {
+      input.value = '';
+      input.blur();
+      let newLi = document.createElement('li');
+      let parent = document.querySelector(".user-list");
+      newLi.innerHTML = makeListItem(data._id, data.description);
+      parent.insertBefore(newLi, parent.firstChild);
+    }
+  })
+  .catch(err => {
+    console.log(err);
+  });
 }
 
 function handleBackButton(event) {

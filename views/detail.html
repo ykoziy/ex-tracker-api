@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercise tracker</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+  <div class="heading">
+    <h1>Exercise Tracker</h1>
+  </div>
+  <div class="container">
+    <div class="content">
+      <div class="loading-spinner"></div>
+      <form action="javascript:alert(`test: edit exercise`);" class="edit-ex-form">
+        <div class="date-dur-input">
+          <div class='date-dur-in'>
+            <input type="date" name="date" placeholder="11/11/19" class="form-input">
+          </div>
+          <div class='date-dur-in'>
+            <input type="text" name="dur" placeholder="Duration (min)" class="form-input">
+          </div>
+        </div>
+        <div class="desc-input">
+          <textarea name="desc" rows="4" placeholder="Description" class="form-input"></textarea>
+        </div>
+        <div class="form-btns">
+          <button type="button" class="back-btn"><span class="fas fa-chevron-left fa-2x"></span>GO BACK</button>
+          <button><span class="fas fa-save fa-2x"></span>SAVE</button>
+        </div>
+      </form>
+    </div>
+  </div>
+<script src="/js/detail.js"></script>
+</body>
+</html>

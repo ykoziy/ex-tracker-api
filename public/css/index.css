@@ -167,6 +167,7 @@ li .list-name {
 .edit-ex-form {
   width: 95%;
   border: 1px solid red;
+  display: none;
 }
 
 .form-btns {

@@ -51,7 +51,7 @@ function onExerciseSubmit(event) {
       input.value = '';
       input.blur();
       let newLi = document.createElement('li');
-      let parent = document.querySelector(".user-list");
+      let parent = document.querySelector(".ex-list");
       newLi.innerHTML = makeListItem(data._id, data.description);
       parent.insertBefore(newLi, parent.firstChild);
     }

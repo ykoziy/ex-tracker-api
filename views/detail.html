@@ -17,14 +17,19 @@
       <form action="javascript:alert(`test: edit exercise`);" class="edit-ex-form">
         <div class="date-dur-input">
           <div class='date-dur-in'>
+            <label>Date: </label>
             <input type="date" name="date" placeholder="11/11/19" class="form-input">
           </div>
           <div class='date-dur-in'>
+            <label>Duration (min): </label>
             <input type="text" name="dur" placeholder="Duration (min)" class="form-input">
           </div>
         </div>
-        <div class="desc-input">
-          <textarea name="desc" rows="4" placeholder="Description" class="form-input"></textarea>
+        <div class="desc-cont">
+          <div class="desc-input">
+            <label>Description: </label>
+            <textarea name="desc" rows="4" placeholder="Description" class="form-input"></textarea>
+          </div>
         </div>
         <div class="form-btns">
           <button type="button" class="back-btn"><span class="fas fa-chevron-left fa-2x"></span>GO BACK</button>

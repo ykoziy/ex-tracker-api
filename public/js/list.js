@@ -77,7 +77,7 @@ function fetchExerciseLog() {
     removeLoadingDiv();
     document.querySelector(".form-input").disabled = false;
     let newUl = document.createElement('ul');
-    newUl.className = "user-list";
+    newUl.className = "ex-list";
     data.log.forEach(item => {
       let newLi = document.createElement('li');
       newLi.setAttribute("data-id", item._id);

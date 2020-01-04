@@ -1,5 +1,6 @@
 ready(() => {
   //document is ready, can execute code
+  window.addEventListener("pageshow", handlePageShow);
   document.querySelector(".content").addEventListener("submit", onExerciseSubmit);
   document.querySelector(".back-btn").addEventListener("click", handleBackButton);
   fetchExerciseLog();
@@ -110,4 +111,10 @@ function userInputSetError(form, errorMsg) {
     inputField.value = '';
     inputField.disabled = false;
   }, 1000)
+}
+
+function handlePageShow(event) {
+  if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+    window.location.reload();
+  }
 }

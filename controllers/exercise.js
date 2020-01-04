@@ -27,6 +27,11 @@ exports.getExerciseEntry = (req, res, next) => {
 }
 
 exports.editExerciseEntry = (req, res, next) => {
-  const { exId } = req.body;
-  console.log("Editing exercise: " + exId);
+  const { exId, desc, dur, date } = req.body;
+  const item = setExerciseObj(desc, dur, date);
+  Exercise.findByIdAndUpdate(exId, item, {new: true}, (err, entry) => {
+    if (err) return next(err);
+    if (!entry) return next({status: 400, message: 'exercise id not found'});
+    res.json(entry);
+  });
 }

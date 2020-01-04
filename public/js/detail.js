@@ -46,7 +46,39 @@ function fetchExerciseEntry() {
 }
 
 function onExerciseSubmit(event) {
-  console.log('submit form');
+  event.preventDefault();
+  const url = '/api/exercise/edit';
+  const exId = window.location.pathname.match(/([^\/]*)\/*$/)[1];
+  const form = event.target;
+  const input = form.querySelectorAll('.form-input');
+
+  let formData = {};
+  formData['exId'] = exId;
+  input.forEach(item => {
+    formData[item.name] = item.value;
+  });
+
+  fetch(url, {
+    method: "put",
+    body: JSON.stringify(formData),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(response => {
+    if (response.status === 400 || response.status === 200) {
+      return response.json();
+    }
+    throw Error(response.statusText);
+  })
+  .then(data => {
+    if (data['error']) {
+      console.log('Something went wrong');
+    }
+  })
+  .catch(err => {
+    console.log(err);
+  });
 }
 
 function handleBackButton(event) {

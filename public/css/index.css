@@ -189,6 +189,7 @@ li .list-name {
   border: none;
   background: none;
   font-weight: 800;
+  cursor: pointer;
 }
 
 .form-btns button span {

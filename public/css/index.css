@@ -83,6 +83,17 @@ li .list-name {
   width: 100%;
 }
 
+.loading-error {
+  flex-direction: column;
+  align-items: center;
+  color: red;
+  display: none;
+}
+
+.error-msg {
+  font-size: 1.2rem;
+}
+
 .loading-spinner {
   height: 90px;
   width: 90px;

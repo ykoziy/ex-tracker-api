@@ -74,6 +74,7 @@ function userInputSetError(form, errorMsg) {
 function fetchUsers() {
   const url = '/api/exercise/users';
   const parent = document.querySelector(".content");
+  showLoadingDiv();
   fetch(url)
   .then(response => {
     return response.json();
@@ -96,6 +97,15 @@ function fetchUsers() {
     showErrorDiv();
     console.log(err);
   });
+}
+
+function showLoadingDiv() {
+  const spinnerDoc = document.querySelector(".loading-spinner");
+  spinnerDoc.style.display = "block";
+  setTimeout(() => {
+    spinnerDoc.style.display = "none";
+    showErrorDiv();
+  }, 15000);
 }
 
 function hideLoadingDiv() {

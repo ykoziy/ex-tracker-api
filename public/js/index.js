@@ -1,3 +1,4 @@
+import { showLoadingDiv, hideLoadingDiv, showErrorDiv, handlePageShow } from './utils.js';
 
 ready(() => {
   window.addEventListener("pageshow", handlePageShow);
@@ -99,30 +100,6 @@ function fetchUsers() {
   });
 }
 
-function showLoadingDiv() {
-  const spinnerDoc = document.querySelector(".loading-spinner");
-  spinnerDoc.style.display = "block";
-  setTimeout(() => {
-    spinnerDoc.style.display = "none";
-    showErrorDiv();
-  }, 15000);
-}
-
-function hideLoadingDiv() {
-  document.querySelector(".loading-spinner").style.display = "none";
-}
-
-function showErrorDiv() {
-  document.querySelector(".loading-error").style.display = "flex";
-}
-
 function makeListItem(userId, userName) {
   return `<a class="list-link" href="/u/${userId}"><span class="fas fa-user fa-2x"></span><div class="list-name">${userName}</div></a>`;
-}
-
-function handlePageShow(event) {
-  if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
-    console.log('reloading page');
-    window.location.reload();
-  }
 }

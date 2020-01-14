@@ -96,6 +96,10 @@ function hideLoadingDiv() {
   document.querySelector(".loading-spinner").style.display = "none";
 }
 
+function showErrorDiv() {
+  document.querySelector(".loading-error").style.display = "flex";
+}
+
 function makeListItem(exId, text) {
   return `<a class="list-link" href="/ex/${exId}"><span class="fas fa-user fa-2x"></span><div class="list-name">${text}</div></a>`;
 }

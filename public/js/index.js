@@ -1,4 +1,10 @@
-import { showLoadingDiv, hideLoadingDiv, showErrorDiv, handlePageShow, userInputSetError } from './utils.js';
+import {
+  showLoadingDiv,
+  hideLoadingDiv,
+  showErrorDiv,
+  handlePageShow,
+  userInputSetError 
+} from './utils.js';
 
 ready(() => {
   window.addEventListener("pageshow", handlePageShow);

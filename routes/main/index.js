@@ -4,6 +4,10 @@ router.get('/', (req, res) => {
   res.sendFile(process.cwd() + '/views/index.html');
 });
 
+router.get('/testview', (req, res) => {
+  res.sendFile(process.cwd() + '/views/index_old.html');
+});
+
 router.get('/u/:userId', (req, res) => {
   res.sendFile(process.cwd() + '/views/list.html');
 });

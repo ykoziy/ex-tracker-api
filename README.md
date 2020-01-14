@@ -17,7 +17,7 @@ Test view: https://yk-ex-tracker-api.glitch.me/testview
         date - Date (optional)
 
 ##### Get user list
-* Send a GET to: `https://yk-ex-tracker-api.glitch.me/api/exercise/users`
+* Send a GET request to: `https://yk-ex-tracker-api.glitch.me/api/exercise/users`
 
 ##### Get exercise log
 * Send a GET request of the form: `https://yk-ex-tracker-api.glitch.me/api/exercise/log?{userId}[&from][&to][&limit]`

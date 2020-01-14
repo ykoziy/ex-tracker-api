@@ -1,3 +1,11 @@
+export function ready(fn) {
+  if (document.readyState != 'loading'){
+    fn();
+  } else {
+    document.addEventListener('DOMContentLoaded', fn);
+  }
+}
+
 export function showLoadingDiv() {
   const spinnerDoc = document.querySelector(".loading-spinner");
   spinnerDoc.style.display = "block";

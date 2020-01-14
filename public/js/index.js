@@ -79,7 +79,7 @@ function fetchUsers() {
     return response.json();
   })
   .then(data => {
-    removeLoadingDiv();
+    hideLoadingDiv();
     document.querySelector(".form-input").disabled = false;
     let newUl = document.createElement('ul');
     newUl.className = "user-list";
@@ -92,13 +92,18 @@ function fetchUsers() {
     parent.appendChild(newUl);
   })
   .catch(err => {
+    hideLoadingDiv();
+    showErrorDiv();
     console.log(err);
   });
 }
 
-function removeLoadingDiv() {
-  let elem = document.querySelector('.loading-spinner');
-  elem.parentNode.removeChild(elem);
+function hideLoadingDiv() {
+  document.querySelector(".loading-spinner").style.display = "none";
+}
+
+function showErrorDiv() {
+  document.querySelector(".loading-error").style.display = "flex";
 }
 
 function makeListItem(userId, userName) {

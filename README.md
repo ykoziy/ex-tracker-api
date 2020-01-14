@@ -1,6 +1,7 @@
 # Exercise Tracker Microservice
 ### Example usage:
-https://yk-ex-tracker-api.glitch.me
+Responsive web app: https://yk-ex-tracker-api.glitch.me
+Test view: https://yk-ex-tracker-api.glitch.me/testview
 ##### Add user
 * Send a POST request to `https://yk-url-shorten-api.glitch.me/api/exercise/new-user`
   * With the following data:

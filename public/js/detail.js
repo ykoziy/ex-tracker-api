@@ -1,3 +1,9 @@
+import {
+  showLoadingDiv,
+  hideLoadingDiv,
+  handleBackButton
+} from './utils.js';
+
 ready(() => {
   //document is ready, can execute code
   document.querySelector(".content").addEventListener("submit", onExerciseSubmit);
@@ -37,7 +43,7 @@ function fetchExerciseEntry() {
           break;
       }
     });
-    removeLoadingDiv();
+    hideLoadingDiv();
     document.querySelector(".edit-ex-form").style.display = "block";
   })
   .catch(err => {
@@ -79,13 +85,4 @@ function onExerciseSubmit(event) {
   .catch(err => {
     console.log(err);
   });
-}
-
-function handleBackButton(event) {
-  window.history.back();
-}
-
-function removeLoadingDiv() {
-  let elem = document.querySelector('.loading-spinner');
-  elem.parentNode.removeChild(elem);
 }

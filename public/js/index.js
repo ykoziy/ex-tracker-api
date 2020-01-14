@@ -1,4 +1,4 @@
-import { showLoadingDiv, hideLoadingDiv, showErrorDiv, handlePageShow } from './utils.js';
+import { showLoadingDiv, hideLoadingDiv, showErrorDiv, handlePageShow, userInputSetError } from './utils.js';
 
 ready(() => {
   window.addEventListener("pageshow", handlePageShow);
@@ -58,18 +58,6 @@ function onUserSubmit(event) {
   .catch(err => {
     console.log(err);
   });
-}
-
-function userInputSetError(form, errorMsg) {
-  let inputField = form.querySelector('.form-input');
-  inputField.disabled = true;
-  inputField.value = errorMsg;
-  inputField.classList.add("form-input-error");
-  setTimeout(() => {
-    inputField.classList.remove("form-input-error");
-    inputField.value = '';
-    inputField.disabled = false;
-  }, 1000)
 }
 
 function fetchUsers() {

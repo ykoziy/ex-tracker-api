@@ -20,3 +20,15 @@ export function handlePageShow(event) {
     window.location.reload();
   }
 }
+
+export function userInputSetError(form, errorMsg) {
+  let inputField = form.querySelector('.form-input');
+  inputField.disabled = true;
+  inputField.value = errorMsg;
+  inputField.classList.add("form-input-error");
+  setTimeout(() => {
+    inputField.classList.remove("form-input-error");
+    inputField.value = '';
+    inputField.disabled = false;
+  }, 1000)
+}

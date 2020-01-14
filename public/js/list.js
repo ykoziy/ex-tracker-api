@@ -1,4 +1,4 @@
-import { showLoadingDiv, hideLoadingDiv, showErrorDiv, handlePageShow } from './utils.js';
+import { showLoadingDiv, hideLoadingDiv, showErrorDiv, handlePageShow, userInputSetError } from './utils.js';
 
 ready(() => {
   //document is ready, can execute code
@@ -99,16 +99,4 @@ function fetchExerciseLog() {
 
 function makeListItem(exId, text) {
   return `<a class="list-link" href="/ex/${exId}"><span class="fas fa-user fa-2x"></span><div class="list-name">${text}</div></a>`;
-}
-
-function userInputSetError(form, errorMsg) {
-  let inputField = form.querySelector('.form-input');
-  inputField.disabled = true;
-  inputField.value = errorMsg;
-  inputField.classList.add("form-input-error");
-  setTimeout(() => {
-    inputField.classList.remove("form-input-error");
-    inputField.value = '';
-    inputField.disabled = false;
-  }, 1000)
 }

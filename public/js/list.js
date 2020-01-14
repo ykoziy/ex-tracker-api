@@ -70,6 +70,7 @@ function fetchExerciseLog() {
   const url = `/api/exercise/log?userId=${userId}`;
   const parent = document.querySelector(".content");
   const refNode = document.querySelector(".form-btns");
+  showLoadingDiv();
   fetch(url)
   .then(response => {
     return response.json();
@@ -92,6 +93,15 @@ function fetchExerciseLog() {
     showErrorDiv();
     console.log(err);
   });
+}
+
+function showLoadingDiv() {
+  const spinnerDoc = document.querySelector(".loading-spinner");
+  spinnerDoc.style.display = "block";
+  setTimeout(() => {
+    spinnerDoc.style.display = "none";
+    showErrorDiv();
+  }, 15000);
 }
 
 function hideLoadingDiv() {

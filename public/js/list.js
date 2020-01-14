@@ -75,7 +75,7 @@ function fetchExerciseLog() {
     return response.json();
   })
   .then(data => {
-    removeLoadingDiv();
+    hideLoadingDiv();
     document.querySelector(".form-input").disabled = false;
     let newUl = document.createElement('ul');
     newUl.className = "ex-list";
@@ -92,9 +92,8 @@ function fetchExerciseLog() {
   });
 }
 
-function removeLoadingDiv() {
-  let elem = document.querySelector('.loading-spinner');
-  elem.parentNode.removeChild(elem);
+function hideLoadingDiv() {
+  document.querySelector(".loading-spinner").style.display = "none";
 }
 
 function makeListItem(exId, text) {

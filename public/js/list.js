@@ -88,6 +88,8 @@ function fetchExerciseLog() {
     parent.insertBefore(newUl, refNode);
   })
   .catch(err => {
+    hideLoadingDiv();
+    showErrorDiv();
     console.log(err);
   });
 }

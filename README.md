@@ -14,7 +14,7 @@ Test view: https://yk-ex-tracker-api.glitch.me/testview
         userId - String (required)
         desc - Description as a String (required)
         dur - duration in minutes as a Number (required)
-        date - Date (optional)
+        date - Date (optional) formatted as "yyyy-mm-dd"
 
 ##### Get user list
 * Send a GET request to: `https://yk-ex-tracker-api.glitch.me/api/exercise/users`
@@ -31,10 +31,12 @@ Test view: https://yk-ex-tracker-api.glitch.me/testview
     * **{}** - required parameters
 
 ##### Edit an exercise entry
-* Send a PUT request: `https://yk-ex-tracker-api.glitch.me/api/exercise/edit?{exID}{&desc}{&dur}{&date}`
-    * **{}** - required parameters
-    * **dur** - number
-    * **date** - date formatted as "yyyy-mm-dd"
+* Send a PUT request: `https://yk-ex-tracker-api.glitch.me/api/exercise/edit`
+* With the following data:
+      exId - String (required)
+      desc - Description as a String (required)
+      dur - duration in minutes as a Number (required)
+      date - Date (required) formatted as "yyyy-mm-dd"
 
 ### Example output:
 * After adding new user

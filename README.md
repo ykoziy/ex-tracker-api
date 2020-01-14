@@ -11,10 +11,10 @@ Test view: https://yk-ex-tracker-api.glitch.me/testview
 ##### Add exercise for a user
 * Send a POST request to `https://yk-ex-tracker-api.glitch.me/api/exercise/add`
   * With the following data:  
-        userId - String (required)  
-        desc - Description as a String (required)  
-        dur - duration in minutes as a Number (required)  
-        date - Date (optional) formatted as "yyyy-mm-dd"  
+    * userId - String (required)  
+    * desc - Description as a String (required)  
+    * dur - duration in minutes as a Number (required)  
+    * date - Date (optional) formatted as "yyyy-mm-dd"  
 
 ##### Get user list
 * Send a GET request to: `https://yk-ex-tracker-api.glitch.me/api/exercise/users`
@@ -33,10 +33,10 @@ Test view: https://yk-ex-tracker-api.glitch.me/testview
 ##### Edit an exercise entry
 * Send a PUT request: `https://yk-ex-tracker-api.glitch.me/api/exercise/edit`
   * With the following data:  
-      exId - String (required)  
-      desc - Description as a String (required)  
-      dur - duration in minutes as a Number (required)  
-      date - Date (required) formatted as "yyyy-mm-dd"  
+    * exId - String (required)  
+    * desc - Description as a String (required)  
+    * dur - duration in minutes as a Number (required)  
+    * date - Date (required) formatted as "yyyy-mm-dd"  
 
 ### Example output:
 * After adding new user

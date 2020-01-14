@@ -33,6 +33,6 @@ export function userInputSetError(form, errorMsg) {
   }, 1000)
 }
 
-function handleBackButton(event) {
+export function handleBackButton(event) {
   window.history.back();
 }

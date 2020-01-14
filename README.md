@@ -32,7 +32,7 @@ Test view: https://yk-ex-tracker-api.glitch.me/testview
 
 ##### Edit an exercise entry
 * Send a PUT request: `https://yk-ex-tracker-api.glitch.me/api/exercise/edit`
-* With the following data:
+  * With the following data:
       exId - String (required)
       desc - Description as a String (required)
       dur - duration in minutes as a Number (required)

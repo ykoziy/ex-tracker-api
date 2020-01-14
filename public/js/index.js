@@ -1,5 +1,6 @@
 
 ready(() => {
+  window.addEventListener("pageshow", handlePageShow);
   document.querySelector(".content").addEventListener("submit", onUserSubmit);
   fetchUsers();
 });
@@ -102,4 +103,11 @@ function removeLoadingDiv() {
 
 function makeListItem(userId, userName) {
   return `<a class="list-link" href="/u/${userId}"><span class="fas fa-user fa-2x"></span><div class="list-name">${userName}</div></a>`;
+}
+
+function handlePageShow(event) {
+  if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+    console.log('reloading page');
+    window.location.reload();
+  }
 }

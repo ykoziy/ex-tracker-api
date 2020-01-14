@@ -1,4 +1,11 @@
-import { showLoadingDiv, hideLoadingDiv, showErrorDiv, handlePageShow, userInputSetError } from './utils.js';
+import {
+  showLoadingDiv,
+  hideLoadingDiv,
+  showErrorDiv,
+  handlePageShow,
+  userInputSetError,
+  handleBackButton
+} from './utils.js';
 
 ready(() => {
   //document is ready, can execute code
@@ -61,10 +68,6 @@ function onExerciseSubmit(event) {
   .catch(err => {
     console.log(err);
   });
-}
-
-function handleBackButton(event) {
-  window.history.back();
 }
 
 function fetchExerciseLog() {

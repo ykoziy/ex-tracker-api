@@ -32,3 +32,7 @@ export function userInputSetError(form, errorMsg) {
     inputField.disabled = false;
   }, 1000)
 }
+
+function handleBackButton(event) {
+  window.history.back();
+}

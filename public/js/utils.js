@@ -1,3 +1,5 @@
+let timeOut = null;
+
 export function ready(fn) {
   if (document.readyState != 'loading'){
     fn();
@@ -9,13 +11,16 @@ export function ready(fn) {
 export function showLoadingDiv() {
   const spinnerDoc = document.querySelector(".loading-spinner");
   spinnerDoc.style.display = "block";
-  setTimeout(() => {
+  timeOut = setTimeout(() => {
     spinnerDoc.style.display = "none";
     showErrorDiv();
   }, 15000);
 }
 
 export function hideLoadingDiv() {
+  if (timeOut) {
+    clearTimeout(timeOut);
+  }
   document.querySelector(".loading-spinner").style.display = "none";
 }
 

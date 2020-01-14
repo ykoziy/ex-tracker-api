@@ -57,6 +57,7 @@ exports.addExercise = (req, res, next) => {
           return next({status: 400, message: 'user id not found'});
         }
         res.json({
+         _id: entry._id,
          description: entry.description,
          duration: entry.duration,
          date: entry.date

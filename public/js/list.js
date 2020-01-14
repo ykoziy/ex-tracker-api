@@ -1,3 +1,5 @@
+import { showLoadingDiv, hideLoadingDiv, showErrorDiv, handlePageShow } from './utils.js';
+
 ready(() => {
   //document is ready, can execute code
   window.addEventListener("pageshow", handlePageShow);
@@ -95,23 +97,6 @@ function fetchExerciseLog() {
   });
 }
 
-function showLoadingDiv() {
-  const spinnerDoc = document.querySelector(".loading-spinner");
-  spinnerDoc.style.display = "block";
-  setTimeout(() => {
-    spinnerDoc.style.display = "none";
-    showErrorDiv();
-  }, 15000);
-}
-
-function hideLoadingDiv() {
-  document.querySelector(".loading-spinner").style.display = "none";
-}
-
-function showErrorDiv() {
-  document.querySelector(".loading-error").style.display = "flex";
-}
-
 function makeListItem(exId, text) {
   return `<a class="list-link" href="/ex/${exId}"><span class="fas fa-user fa-2x"></span><div class="list-name">${text}</div></a>`;
 }
@@ -126,10 +111,4 @@ function userInputSetError(form, errorMsg) {
     inputField.value = '';
     inputField.disabled = false;
   }, 1000)
-}
-
-function handlePageShow(event) {
-  if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
-    window.location.reload();
-  }
 }

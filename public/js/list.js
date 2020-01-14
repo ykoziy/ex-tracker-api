@@ -1,4 +1,5 @@
 import {
+  ready,
   showLoadingDiv,
   hideLoadingDiv,
   showErrorDiv,
@@ -14,14 +15,6 @@ ready(() => {
   document.querySelector(".back-btn").addEventListener("click", handleBackButton);
   fetchExerciseLog();
 });
-
-function ready(fn) {
-  if (document.readyState != 'loading'){
-    fn();
-  } else {
-    document.addEventListener('DOMContentLoaded', fn);
-  }
-}
 
 function onExerciseSubmit(event) {
   event.preventDefault();

@@ -1,4 +1,5 @@
 import {
+  ready,
   showLoadingDiv,
   hideLoadingDiv,
   handleBackButton
@@ -10,14 +11,6 @@ ready(() => {
   document.querySelector(".back-btn").addEventListener("click", handleBackButton);
   fetchExerciseEntry();
 });
-
-function ready(fn) {
-  if (document.readyState != 'loading'){
-    fn();
-  } else {
-    document.addEventListener('DOMContentLoaded', fn);
-  }
-}
 
 function fetchExerciseEntry() {
   const exId = window.location.pathname.match(/([^\/]*)\/*$/)[1];

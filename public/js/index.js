@@ -1,9 +1,10 @@
 import {
+  ready,
   showLoadingDiv,
   hideLoadingDiv,
   showErrorDiv,
   handlePageShow,
-  userInputSetError 
+  userInputSetError
 } from './utils.js';
 
 ready(() => {
@@ -11,14 +12,6 @@ ready(() => {
   document.querySelector(".content").addEventListener("submit", onUserSubmit);
   fetchUsers();
 });
-
-function ready(fn) {
-  if (document.readyState != 'loading'){
-    fn();
-  } else {
-    document.addEventListener('DOMContentLoaded', fn);
-  }
-}
 
 function onUserSubmit(event) {
   event.preventDefault();

@@ -2,6 +2,7 @@
 ### Example usage:
 Responsive web app: https://yk-ex-tracker-api.glitch.me  
 Test view: https://yk-ex-tracker-api.glitch.me/testview
+
 ##### Add user
 * Send a POST request to `https://yk-url-shorten-api.glitch.me/api/exercise/new-user`
   * With the following data:
@@ -15,12 +16,26 @@ Test view: https://yk-ex-tracker-api.glitch.me/testview
         dur - duration in minutes as a Number (required)
         date - Date (optional)
 
+##### Get user list
+* Send a GET to: `https://yk-url-shorten-api.glitch.me/api/exercise/users
+
 ##### Get exercise log
 * Send a GET request of the form: `https://yk-url-shorten-api.glitch.me/api/exercise/log?{userId}[&from][&to][&limit]`
     * **{}** - required parameters
     * **[]** - optional parameters
     * ** from, to** - dates formatted as "yyyy-mm-dd"
     * **limit** - number
+
+##### Get a specific exercise entry
+* Send a GET request of the form: `https://yk-ex-tracker-api.glitch.me/api/exercise/entry?{exId}`
+    * **{}** - required parameters
+
+##### Edit an exercise entry
+* Send a PUT request: `https://yk-ex-tracker-api.glitch.me/api/exercise/edit?{exID}{&desc}{&dur}{&date}`
+    * **{}** - required parameters
+    * **dur** - number
+    * **date** - date formatted as "yyyy-mm-dd"
+
 ### Example output:
 * After adding new user
     * {"_id":"yT9XJzFz","username":"test"}

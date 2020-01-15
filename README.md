@@ -1,7 +1,11 @@
 # Exercise Tracker Microservice
 ### Example usage:
 Responsive web app: https://yk-ex-tracker-api.glitch.me  
-Test view: https://yk-ex-tracker-api.glitch.me/testview
+
+Test view: https://yk-ex-tracker-api.glitch.me/testview  
+
+#### Responsive web app notes:
+* After adding exercise click on it (appears first after adding) to edit date and duration.
 
 ##### Add user
 * Send a POST request to `https://yk-ex-tracker-api.glitch.me/api/exercise/new-user`

@@ -16,6 +16,7 @@ function fetchExerciseEntry() {
   const exId = window.location.pathname.match(/([^\/]*)\/*$/)[1];
   const url = `/api/exercise/entry?exId=${exId}`;
   const inputs = document.querySelectorAll(".form-input");
+  showLoadingDiv();
   fetch(url)
   .then(response => {
     return response.json();
